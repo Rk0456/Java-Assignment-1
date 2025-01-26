@@ -1,0 +1,53 @@
+import java.util.*;
+
+public class Main {
+    public static int calculateTotal(int value) {
+        return value;
+    }
+
+    public static int calculateTotal(int value, int quantity) {
+        return value * quantity;
+    }
+
+    public static int calculateTotal(int value1, int value2, int value3) {
+        return value1 + value2 + value3;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the input type (1 for single item, 2 for multiple items of the same type, 3 for three different items):");
+        int inputs = scanner.nextInt();
+        int res = 0;
+
+        switch (inputs) {
+            case 1:
+                System.out.println("Enter the price of the single item:");
+                int n1 = scanner.nextInt();
+                res = calculateTotal(n1);
+                break;
+
+            case 2:
+                System.out.println("Enter the price of one item:");
+                int price = scanner.nextInt();
+                System.out.println("Enter the quantity:");
+                int quantity = scanner.nextInt();
+                res = calculateTotal(price, quantity);
+                break;
+
+            case 3:
+                System.out.println("Enter the price of three different items:");
+                int value1 = scanner.nextInt();
+                int value2 = scanner.nextInt();
+                int value3 = scanner.nextInt();
+                res = calculateTotal(value1, value2, value3);
+                break;
+
+            default:
+                System.out.println("Invalid input type.");
+                return;
+        }
+
+        System.out.println("Total cost: " + res);
+        scanner.close();
+    }
+}
